@@ -6,7 +6,6 @@ const Header = (props) => {
   return (
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
-        {/* Left Side Navigation */}
         <nav className="flex space-x-6">
           <Link to="/welcome" className="flex items-center text-gray-700 dark:text-gray-300">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">

@@ -57,24 +57,6 @@ const SelectCourse = () => {
 
           </select>
         </div>
-
-        {/* <div className="relative">
-          <label className="block text-gray-700 text-sm font-medium mb-1">Chapter</label>
-          <select
-            className="block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500 text-lg p-3"
-            required
-          >
-            <option value="" disabled hidden>Select Chapter</option>
-            {[...Array(8)].map((_, index) => (
-              <option key={index} value={`Chapter ${index + 1}`}>
-                Chapter {index + 1}
-              </option>
-            ))}
-          </select>
-        </div> */}
-
-       
-
         <button
           type="submit"
           className="w-full py-2 mt-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
