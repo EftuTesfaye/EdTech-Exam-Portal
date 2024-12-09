@@ -33,6 +33,19 @@ import AdminLogin from "../src/pages/AdminLogin/AdminLogin";
 import AdminUserDataView from "../src/pages/Admin/AdminUserDataView";
 import {SystemAdminRouteGuard} from "../src/components/SystemAdminGuard";
 import AddNewQuestion from "./pages/Questions/SelectPlainQuestion";
+import DirectionPage from "./pages/DirectionPage/DirectionPage";
+import DirectionEditorPage from "./pages/directionEditorPage/DirectionEditorPage";
+import { ExamCategoryPage } from "./pages/ExamCategories/ExamCategoryPage";
+import ExercisePage from "./pages/Exercise/ExercisePage";
+import ExerciseQuestionPage from "./pages/ExerciseQuestionPage/ExerciseQuestionPage";
+import ExerciseQuestionEditorPage from "./pages/ExerciseEditorPage/ExerciseEditorPage";
+import ExerciseInfoEdit from "./pages/ExerciseInfoEdit/ExerciseInfoEdit";
+import GeneralQuestionPageEditor from "./pages/GeneralQuestionEditor/GeneralQuestionPageEditor";
+import GeneralQuestionPage from "./pages/GeneralQuestionPage/GeneralQuestionPage";
+import GroupedQuestionPage from "./pages/GroupedQuestionPage/GroupedQuestionPage";
+import { MaterialResourcePage } from "./pages/MaterialResourcePage/MaterialResourcePage";
+import PlainQuestionEditor from "./pages/PlainQuestionEditor/PlainQuestionEditor";
+import PlainQuestionData from "./pages/PlainQuestionPage/PlainQuestionData";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -82,6 +95,8 @@ function App() {
         <Route path="/auth/signin" element={<><PageTitle title="Sign In" /><SignIn /></>} />
         <Route path="/auth/signup" element={<><PageTitle title="Sign Up" /><SignUp /></>} />
 
+
+
         <Route path="/add-new-question" element={<><PageTitle title="Add New Question" /><AddNewQuestion /></>} />
         <Route path="/selectcourse" element={<><PageTitle title="Select Course" /><SelectCourse /></>} />
         <Route path="/category" element={<><PageTitle title="Category Selector" /><Category /></>} />
@@ -96,6 +111,31 @@ function App() {
         <Route path="/view-material-resource" element={<><PageTitle title="Material Resource" /><ViewMaterialResourcePage /></>} />
         <Route path="/view-exam-categories" element={<><PageTitle title="Exam Categories" /><ViewExamCategory /></>} />
         <Route path="/admin-notification" element={<><PageTitle title="Admin Notification" /><AdminNotification /></>} />
+        <Route path="/admin-dashboard" element={<><PageTitle title="AdminDashboard" /><AdminDashboard /></>} />
+
+        
+        <Route path="/edit-direction" element={<><PageTitle title="DirectionEditorPage" /><DirectionEditorPage /></>} />
+        <Route path="/edit-exercise-question" element={<><PageTitle title="ExerciseQuestionEditorPage" /><ExerciseQuestionEditorPage /></>} />
+        <Route path="/exercise-info-edit"element={<><PageTitle title="ExerciseInfoEdit" /><ExerciseInfoEdit /></>} />
+        <Route path="/edit-exam-category" element={<><PageTitle title="DirectionPage" /><ExamCategoryPage /></>} />
+        <Route path="/edit-material-resources" element={<><PageTitle title="MaterialResourcePage" /><MaterialResourcePage /></>} />
+        <Route path="/edit-plain-question" element={<><PageTitle title="PlainQuestionEditor" /><PlainQuestionEditor /></>} />
+        <Route path="/edit-general-questions" element={<><PageTitle title="GeneralQuestionPageEditor" /><GeneralQuestionPageEditor /></>} />
+
+
+
+        <Route path="/plain-question" element={<><PageTitle title="PlainQuestionData" /><PlainQuestionData /></>} />
+        <Route path="/material-resource" element={<><PageTitle title="MaterialResourcePage" /><MaterialResourcePage /></>} />
+        <Route path="/general-question" element={<><PageTitle title="GeneralQuestionPage" /><GeneralQuestionPage /></>} />
+        <Route path="/grouped-question" element={<><PageTitle title="GroupedQuestionPage" /><GroupedQuestionPage /></>} />
+        <Route path="/direction" element={<><PageTitle title="DirectionPage" /><DirectionPage /></>} />
+
+
+        <Route path="/exam-category" element={<><PageTitle title="ExamCategoryPage" /><ExamCategoryPage /></>} />
+        <Route path="/exercise" element={<><PageTitle title="ExercisePage" /><ExercisePage /></>} />
+        <Route path="/exercise-question" element={<><PageTitle title="ExerciseQuestionPage" /><ExerciseQuestionPage /></>} />
+
+       
 
 
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />

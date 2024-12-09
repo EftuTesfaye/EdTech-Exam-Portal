@@ -29,7 +29,10 @@ export default function AdminNotification() {
     } else {
       setIsOpen(true);
       if (notifications.length > 0) {
-        const ids = notifications.map((n) => n._id);
+        // Filter out undefined values
+        const ids = notifications
+          .map((n) => n._id)
+          .filter((id): id is string => id !== undefined); // Type guard to ensure only strings are in ids
         await resetAdminNotifications(ids);
         setNotifications([]);
       }
@@ -51,9 +54,7 @@ export default function AdminNotification() {
       </div>
 
       {isOpen && (
-        <div
-          className={`absolute right-0 mt-2 w-96 md:w-1/4 lg:w-1/6 bg-gray-900 text-white border shadow-lg rounded-lg p-3 transition ease-in-out duration-200 z-50`}
-        >
+        <div className={`absolute right-0 mt-2 w-96 md:w-1/4 lg:w-1/6 bg-gray-900 text-white border shadow-lg rounded-lg p-3 transition ease-in-out duration-200 z-50`}>
           <h2 className="text-lg font-semibold mb-2">New Notifications</h2>
           <div className="max-h-64 overflow-y-auto">
             {notifications.length > 0 ? (

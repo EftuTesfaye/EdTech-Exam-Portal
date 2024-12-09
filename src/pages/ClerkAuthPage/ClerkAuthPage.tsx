@@ -80,7 +80,7 @@ export default function ClerkAuthPage() {
         )}
 
         <h2 className="mb-6 text-2xl font-bold text-gray-800 dark:text-white">
-          {isLoginMode ? "Clerk Login" : "Clerk Signup"}
+          {isLoginMode ? "Login" : "Signup"}
         </h2>
 
         {message && (

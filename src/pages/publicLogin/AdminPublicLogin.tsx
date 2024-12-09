@@ -39,7 +39,7 @@ export default function AdminPublicLogin() {
           </div>
         )}
         <h2 className="mb-6 text-2xl font-bold text-gray-800 dark:text-white">
-          Clerk Login
+        Login
         </h2>
 
         {message && (

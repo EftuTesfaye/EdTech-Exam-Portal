@@ -7,14 +7,17 @@ const AddNewQuestion = () => {
   const routes = [
    
     
-    { label: "Insert Plain Questions", path: "/insert-plain-questions" },
-    { label: "Insert Group Questions", path: "/insert-group-questions" },
-    { label: "Insert Directions", path: "/insert-directions" },
-    { label: "Insert General Question", path: "/insert-general-question" },
-    { label: "Insert Exercise Question Info", path: "/insert-exercise-question-info" },
-    { label: "Insert Exercise Question", path: "/insert-exercise-question" },
-    { label: "Insert General Question Categories", path: "/insert-general-question-categories" },
-    { label: "Insert Material Resource", path: "/insert-material-resource" },
+    { label: "Insert Plain Questions", path: "/plain-question" },
+    { label: "Insert Group Questions", path: "/grouped-question" },
+    { label: "Insert Directions", path: "/direction" },
+    { label: "Insert General Question", path: "/general-question" },
+
+    { label: "Insert Exercise Question Info", path: "exercise" },
+    { label: "Insert Exercise Question", path: "/exercise-question" },
+    { label: "Insert General Question Categories", path: "/exam-category" },
+    
+    
+    { label: "Insert Material Resource", path: "/material-resource" },
 
   ];
 
