@@ -58,10 +58,13 @@ function App() {
     return () => clearTimeout(timer); 
   }, []);
 
-  return loading ? (
-    <Loader />
-  ) : (
-    <DefaultLayout>
+
+
+  const noLayoutRoutes = ["/", "/data", "/clerk-auth", "/admin-login"];
+
+  const renderContent = () => {
+    return (
+
       <Routes>
 
         <Route path="/" element={<><PageTitle title="Admin Login" /><AdminPublicLogin /></>} />
@@ -109,9 +112,6 @@ function App() {
         <Route path="/admin-notification" element={<><PageTitle title="Admin Notification" /><AdminNotification /></>} />
         <Route path="/admin-dashboard" element={<><PageTitle title="AdminDashboard" /><AdminDashboard /></>} />
         <Route path="/view-clerk-detail" element={<><PageTitle title="ViewClerkDetailPage" /><ViewClerkDetailPage /></>} />
-
-       
-        
         
         <Route path="/edit-direction" element={<><PageTitle title="DirectionEditorPage" /><DirectionEditorPage /></>} />
         <Route path="/edit-exercise-question" element={<><PageTitle title="ExerciseQuestionEditorPage" /><ExerciseQuestionEditorPage /></>} />
@@ -120,8 +120,6 @@ function App() {
         <Route path="/edit-material-resources" element={<><PageTitle title="MaterialResourcePage" /><MaterialResourcePage /></>} />
         <Route path="/edit-plain-question" element={<><PageTitle title="PlainQuestionEditor" /><PlainQuestionEditor /></>} />
         <Route path="/edit-general-questions" element={<><PageTitle title="GeneralQuestionPageEditor" /><GeneralQuestionPageEditor /></>} />
-
-
 
         <Route path="/plain-question" element={<><PageTitle title="PlainQuestionData" /><PlainQuestionData /></>} />
         <Route path="/material-resource" element={<><PageTitle title="MaterialResourcePage" /><MaterialResourcePage /></>} />
@@ -138,8 +136,18 @@ function App() {
 
 
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-      </Routes>
-    </DefaultLayout>
+      </Routes>);
+      };
+         return loading ? (
+          <Loader />
+        ) : (
+          noLayoutRoutes.includes(pathname) ? (
+            renderContent()
+          ) : (
+            <DefaultLayout>
+              {renderContent()}
+            </DefaultLayout>
+          )
   );
 }
 
