@@ -162,7 +162,7 @@ const AdminChallenge = () => {
             >
               Submit
             </button>
-            <Link to="/admin-user/view-exam-category">
+            <Link to="/view-exam-category">
               <button
                 type="button"
                 className="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400 focus:outline-none"

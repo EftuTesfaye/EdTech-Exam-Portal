@@ -206,13 +206,13 @@ export default function GeneralQuestionPageEditor() {
             <button
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               onClick={() =>
-                navigate("/admin-user/view-general-question", {
+                navigate("/view-general-question", {
                   state: { initialPage: location.state?.initialPage },
                   replace: true,
                 })
               }
             >
-              Back To View Questions
+              Back 
             </button>
           </div>
         </div>

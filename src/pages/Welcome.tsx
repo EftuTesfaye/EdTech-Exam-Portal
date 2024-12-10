@@ -96,7 +96,7 @@ const DataHubApp = () => {
 
   const handleGoClick = () => {
     if (selectedCountry?.name === "Ethiopia") {
-      window.location.href = "/admin-user";
+      window.location.href = "/admin-dashboard";
     }
   };
 

@@ -151,7 +151,7 @@ export default function ViewDirectionsPage() {
                   <td className="border border-gray-300 p-2">{parse(direction.sectionName, options)}</td>
                   <td className="border border-gray-300 p-2">{parse(direction.passage || "", options)}</td>
                   <td className="border border-gray-300 p-2">
-                    <Link to={"/admin-user/edit-direction"} state={{ direction }}>
+                    <Link to={"/edit-direction"} state={{ direction }}>
                       <button className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
                     </Link>
                     <button

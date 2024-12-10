@@ -188,9 +188,9 @@ export const MaterialResourcePage = () => {
           >
             Submit
           </button>
-          <Link to={"/admin-user/view-material-resources"}>
+          <Link to={"/view-material-resources"}>
             <button className="bg-gray-500 text-white py-2 px-4 rounded ml-4">
-              Back To View Material Resources
+              Back 
             </button>
           </Link>
         </div>

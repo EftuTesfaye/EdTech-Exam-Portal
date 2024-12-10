@@ -114,7 +114,7 @@ export default function ViewPlainQuestionsPage() {
                   <td className="border border-gray-300 p-2">
                     <div className="flex space-x-2">
                       <Link
-                        to={"/admin-user/edit-plain-question"}
+                        to={"/edit-plain-question"}
                         state={{ question }}
                       >
                         <button

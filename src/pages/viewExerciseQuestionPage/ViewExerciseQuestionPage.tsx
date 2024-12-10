@@ -1,5 +1,4 @@
 import placeholderImage from "../../assets/place_holder.jpg";
-
 import parse, {
   HTMLReactParserOptions,
   Element,
@@ -16,11 +15,11 @@ import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { ExerciseQuestion } from "../../models/exerciseQuestion.model";
 import CustomPagination from "../../components/pagination";
-import SelectDropdown, { SelectOption } from "../../components/SelectDropdown";
-import styles from "./viewExercise.module.css";
+import SelectDropdown from "../../components/SelectDropdown";
 import { fetchExerciseQuestions } from "../../DataService/viewExerciseQuestion.service";
 import { coursesOptions, gradeOptions } from "../../constants";
 import { getExerciseQuestionFromServer } from "../../DataService/exercise.service";
+
 const options: HTMLReactParserOptions = {
   replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs) {
@@ -28,11 +27,10 @@ const options: HTMLReactParserOptions = {
     }
   },
 };
+
 export default function ViewExerciseQuestionPage() {
   const location = useLocation();
-  let [initialPage, setInitialPage] = useState(
-    location.state?.initialPage || 1
-  );
+  let [initialPage, setInitialPage] = useState(location.state?.initialPage || 1);
   const [selectedGrade, setSelectedGrade] = useState("9");
   const [selectedCourse, setSelectedCourse] = useState(coursesOptions[0].value);
   const [errorMessage, setErrorMessage] = useState("");
@@ -69,8 +67,8 @@ export default function ViewExerciseQuestionPage() {
       size: 10,
     });
 
-    if (Array.isArray(questions) && questions.length == 0) {
-      setMessage("No Questions inserted Yet For this Grade and ");
+    if (Array.isArray(questions) && questions.length === 0) {
+      setMessage("No Questions inserted Yet For this Grade and Course");
       return;
     }
 
@@ -81,6 +79,7 @@ export default function ViewExerciseQuestionPage() {
   const handleCourseChange = (e: any) => {
     setSelectedCourse(e.target.value);
   };
+
   const handleGradeChange = (e: any) => {
     setSelectedGrade(e.target.value);
   };
@@ -89,26 +88,21 @@ export default function ViewExerciseQuestionPage() {
     let result: any = await deleteExerciseQuestion(questionId);
     if (result instanceof AxiosError) {
       let msgTxt = "";
-      const messages =
-        result.response?.data?.message ||
-        (["something is wrong try again Later"] as Array<string>);
+      const messages = result.response?.data?.message || ["Something went wrong, try again later"];
       for (const msg of messages) {
-        msgTxt += msg + " "; //concatenate array of error messages
+        msgTxt += msg + " "; // concatenate array of error messages
       }
       setErrorMessage(msgTxt);
       showErrorToast();
     } else {
-      setQuestions((prev) => {
-        let newQues = prev.filter((q) => q._id !== questionId);
-        return [...newQues];
-      });
-
+      setQuestions((prev) => prev.filter((q) => q._id !== questionId));
       showSuccessToast("Request Success");
     }
   };
+
   return (
-    <div>
-      <div className={styles.dropDown}>
+    <div className="container mx-auto p-4">
+      <div className="flex space-x-4 mb-4">
         <SelectDropdown
           title=""
           value={selectedCourse}
@@ -122,114 +116,78 @@ export default function ViewExerciseQuestionPage() {
           handleSelect={handleGradeChange}
         />
       </div>
-      <div className={styles.allTable}>
-        <table className={styles.table}>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white border border-gray-200">
           <thead>
-            <tr className={styles.row}>
-              <th
-                className={`${styles.tableHeader} ${styles.th} ${styles.noColumn}`}
-              >
-                No
-              </th>
-              <th className={`${styles.th}`}>Chapter </th>
-              <th className={`${styles.th} ${styles.questionColumn}`}>
-                Questions
-              </th>
-              <th className={`${styles.th}`}>Option 'A'</th>
-              <th className={`${styles.th}`}>Option 'B'</th>
-              <th className={`${styles.th}`}>Option 'C'</th>
-              <th className={`${styles.th}`}>Option 'D'</th>
-              <th className={`${styles.th} ${styles.answerColumn}`}>Ans</th>
-              <th className={`${styles.th} ${styles.descriptionColumn}`}>
-                Description
-              </th>
-              <th className={`${styles.th}`}>Que Img </th>
-              <th className={` ${styles.th}`}>Des Img </th>
-              <th className={`${styles.th}`}>Manage</th>
+            <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+              <th className="py-3 px-6 text-left">No</th>
+              <th className="py-3 px-6 text-left">Chapter</th>
+              <th className="py-3 px-6 text-left">Questions</th>
+              <th className="py-3 px-6 text-left">Option 'A'</th>
+              <th className="py-3 px-6 text-left">Option 'B'</th>
+              <th className="py-3 px-6 text-left">Option 'C'</th>
+              <th className="py-3 px-6 text-left">Option 'D'</th>
+              <th className="py-3 px-6 text-left">Ans</th>
+              <th className="py-3 px-6 text-left">Description</th>
+              <th className="py-3 px-6 text-left">Que Img</th>
+              <th className="py-3 px-6 text-left">Des Img</th>
+              <th className="py-3 px-6 text-left">Manage</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-gray-600 text-sm font-light">
             {questions.length > 0
               ? questions.map((question, index) => (
-                  <tr className={styles.tr} key={index}>
-                    <td className={`${styles.td} ${styles.tdNo}`}>
-                      {question?.questionNumber}
-                    </td>
-
-                    <td className={`${styles.td} ${styles.tdNo}`}>
-                      {question?.chapter}
-                    </td>
-
-                    <td className={styles.td}>
-                      {parse(question.questionText, options)}
-                    </td>
-
-                    <td className={styles.td}>
-                      {parse(question.option_a, options)}
-                    </td>
-                    <td className={styles.td}>
-                      {parse(question.option_b, options)}
-                    </td>
-                    <td className={styles.td}>
-                      {parse(question.option_c, options)}
-                    </td>
-                    <td className={styles.td}>
-                      {parse(question.option_d, options)}
-                    </td>
-                    <td className={styles.td}>{question.answer}</td>
-                    <td className={styles.td}>
-                      {parse(question?.description || "", options)}
-                    </td>
-                    <td className={styles.td}>
+                  <tr className="border-b border-gray-200 hover:bg-gray-100" key={index}>
+                    <td className="py-3 px-6">{question?.questionNumber}</td>
+                    <td className="py-3 px-6">{question?.chapter}</td>
+                    <td className="py-3 px-6">{parse(question.questionText, options)}</td>
+                    <td className="py-3 px-6">{parse(question.option_a, options)}</td>
+                    <td className="py-3 px-6">{parse(question.option_b, options)}</td>
+                    <td className="py-3 px-6">{parse(question.option_c, options)}</td>
+                    <td className="py-3 px-6">{parse(question.option_d, options)}</td>
+                    <td className="py-3 px-6">{question.answer}</td>
+                    <td className="py-3 px-6">{parse(question?.description || "", options)}</td>
+                    <td className="py-3 px-6">
                       <img
-                        style={{ maxWidth: "130px", height: "60px" }}
-                        src={
-                          resolveImageURL(question.questionImage || "") ||
-                          placeholderImage
-                        }
+                        className="max-w-xs h-auto"
+                        src={resolveImageURL(question.questionImage || "") || placeholderImage}
+                        alt="Question"
                       />
                     </td>
-                    <td className={styles.td}>
-                      {" "}
+                    <td className="py-3 px-6">
                       <img
-                        style={{ maxWidth: "130px", height: "60px" }}
-                        src={
-                          resolveImageURL(question.descriptionImage || "") ||
-                          placeholderImage
-                        }
+                        className="max-w-xs h-auto"
+                        src={resolveImageURL(question.descriptionImage || "") || placeholderImage}
+                        alt="Description"
                       />
                     </td>
-                    <td className={styles.td}>
+                    <td className="py-3 px-6">
                       <Link
-                        to={"/admin-user/edit-exercise-question"}
+                        to={"/edit-exercise-question"}
                         state={{ question }}
                       >
-                        <button className={styles.label}>Edit</button>
+                        <button className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">Edit</button>
                       </Link>
                       <button
-                        className={styles.label1}
-                        onClick={() =>
-                          deleteExerciseQuestionFromServer(question._id || "")
-                        }
+                        className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 ml-2"
+                        onClick={() => deleteExerciseQuestionFromServer(question._id || "")}
                       >
                         Delete
                       </button>
                     </td>
                   </tr>
                 ))
-              : message}
+              : <tr><td colSpan={12} className="text-center">{message}</td></tr>}
           </tbody>
         </table>
       </div>
-      <div className={styles.pagination}>
-        <div className="">
-          <CustomPagination
-            totalItems={totalCount}
-            pageSize={10}
-            onPageChange={onPageChange}
-            activePage={initialPage}
-          />
-        </div>
+      <div className="mt-4">
+        <CustomPagination
+          totalItems={totalCount}
+          pageSize={10}
+          onPageChange={onPageChange}
+          activePage={initialPage}
+        />
       </div>
     </div>
   );

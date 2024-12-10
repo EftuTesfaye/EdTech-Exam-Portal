@@ -243,12 +243,12 @@ export default function PlainQuestionEditor() {
               className="bg-gray-500 text-white py-2 px-4 rounded"
               onClick={() => {
                 const path = isGroupedQuestion ?
-                  "/admin-user/view-grouped-questions" :
-                  "/admin-user/view-plain-questions";
+                  "/view-grouped-questions" :
+                  "/view-plain-questions";
                 navigate(path, { state: { course: viewPlainQuestionState.selectedCourse, year: viewPlainQuestionState.selectedYear, page: viewPlainQuestionState.page }, replace: true });
               }}
             >
-              Back To View Questions
+              Back
             </button>
           </div>
         </div>

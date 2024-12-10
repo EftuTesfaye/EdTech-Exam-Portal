@@ -65,7 +65,7 @@ export default function ViewExamCategory() {
                   <td className="border border-gray-300 p-2">
                     <div className="flex space-x-2">
                       <Link
-                        to={"/admin-user/edit-exam-category"}
+                        to={"/edit-exam-category"}
                         state={{ examCategory }}
                       >
                         <button className="bg-blue-500 text-white px-2 py-1 rounded">

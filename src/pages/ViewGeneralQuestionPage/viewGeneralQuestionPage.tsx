@@ -147,7 +147,7 @@ export default function ViewExerciseQuestionPage() {
                   </td>
                   <td className="border border-gray-300 p-2">
                     <div className="flex space-x-2">
-                      <Link to={"/admin-user/edit-general-questions"} state={{ question, initialPage }}>
+                      <Link to={"/edit-general-questions"} state={{ question, initialPage }}>
                         <button className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
                       </Link>
                       <button

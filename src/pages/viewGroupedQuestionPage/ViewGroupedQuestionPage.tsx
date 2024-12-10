@@ -131,7 +131,7 @@ export function ViewGroupedQuestionsPage() {
                   </td>
                   <td className="border border-gray-300 p-2">
                     <Link
-                      to={"/admin-user/edit-plain-question"}
+                      to={"/edit-plain-question"}
                       state={{ question }}
                     >
                       <button

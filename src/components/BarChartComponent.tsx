@@ -18,6 +18,7 @@ export function BarChartComponent({ data }: any) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
+          
           <Legend />
           <Bar dataKey={"name"} fill="#8884d8" />
           <Bar dataKey={"count"} fill="#82ca9d" />

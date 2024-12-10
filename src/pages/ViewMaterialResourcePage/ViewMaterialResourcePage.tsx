@@ -145,7 +145,7 @@ export default function ViewMaterialResourcePage() {
                   </td>
                   <td className="border border-gray-300 p-2">
                     <Link
-                      to={"/admin-user/edit-material-resources"}
+                      to={"/edit-material-resources"}
                       state={{ materialResource: material }}
                     >
                       <button className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>

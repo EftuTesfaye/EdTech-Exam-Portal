@@ -42,7 +42,7 @@ export default function AdminUserDataView() {
             className="rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:focus:ring-blue-500"
           >
             <option value="">Data Insertion</option>
-            <option value="/admin-user/plain-question">Plain Question</option>
+            <option value="/plain-question">Plain Question</option>
             <option value="grouped-question">Group Question</option>
             <option value="direction">Insert Directions</option>
           </select>

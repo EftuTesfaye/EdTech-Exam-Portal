@@ -84,7 +84,7 @@ export const ExamCategoryPage = () => {
     >
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-2xl bg-white rounded shadow-md p-6">
-          {/* Name Input */}
+
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700">
               Name:
@@ -98,7 +98,6 @@ export const ExamCategoryPage = () => {
             <ErrorComponent value={name} />
           </div>
 
-          {/* Category Input */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700">
               Category:
@@ -113,7 +112,6 @@ export const ExamCategoryPage = () => {
             <ErrorComponent value={category} />
           </div>
 
-          {/* Buttons */}
           <div className="flex items-center justify-start">
             <button
               onClick={submitCategory}
@@ -122,9 +120,9 @@ export const ExamCategoryPage = () => {
               Submit
             </button>
 
-            <Link to={"/admin-user/view-exam-category"} state={{}}>
+            <Link to={"/view-exam-category"} state={{}}>
               <button className="bg-gray-300 hover:bg-gray-400 text-black font-semibold py-2 px-4 rounded shadow">
-                Back to View Exam Category
+                Back
               </button>
             </Link>
           </div>

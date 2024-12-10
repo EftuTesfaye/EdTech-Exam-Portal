@@ -133,7 +133,7 @@ export default function ExerciseInfoEdit() {
               }}
               className="px-6 py-2 bg-gray-300 text-gray-800 rounded-md shadow hover:bg-gray-400 transition duration-200"
             >
-              Back To View Questions
+              Back 
             </button>
           </div>
         </div>

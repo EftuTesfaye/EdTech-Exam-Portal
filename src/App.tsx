@@ -3,9 +3,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 import Loader from "./common/Loader";
 import PageTitle from "./components/PageTitle";
-import SignIn from "./pages/Authentication/SignIn";
-import SignUp from "./pages/Authentication/SignUp";
-import Chart from "./pages/Chart";
 import AdminDashboard from "./pages/Dashboard/ExamPortal";
 import FormElements from "./pages/Form/FormElements";
 import FormLayout from "./pages/Form/FormLayout";
@@ -46,6 +43,7 @@ import GroupedQuestionPage from "./pages/GroupedQuestionPage/GroupedQuestionPage
 import { MaterialResourcePage } from "./pages/MaterialResourcePage/MaterialResourcePage";
 import PlainQuestionEditor from "./pages/PlainQuestionEditor/PlainQuestionEditor";
 import PlainQuestionData from "./pages/PlainQuestionPage/PlainQuestionData";
+import ViewClerkDetailPage from "./pages/viewClerkDetailPage/ViewClerkDetailPage";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -66,8 +64,8 @@ function App() {
     <DefaultLayout>
       <Routes>
 
-        <Route path="/" element={<><PageTitle title="Categories" /><AdminPublicLogin /></>} />
-        <Route path="data" element={<><PageTitle title="Categories" /><DataHubApp /></>} />
+        <Route path="/" element={<><PageTitle title="Admin Login" /><AdminPublicLogin /></>} />
+        <Route path="data" element={<><PageTitle title="Data Hub App" /><DataHubApp /></>} />
         <Route path="clerk-auth" element={<><PageTitle title="Clerk Auth" /><ClerkAuthPage /></>} />
         <Route path="admin-login" element={<><PageTitle title="Admin Login" /><AdminLogin /></>} />
 
@@ -90,10 +88,8 @@ function App() {
         <Route path="/forms/form-elements" element={<><PageTitle title="Form Elements" /><FormElements /></>} />
         <Route path="/forms/form-layout" element={<><PageTitle title="Form Layout" /><FormLayout /></>} />
         <Route path="/settings" element={<><PageTitle title="Settings" /><Settings /></>} />
-        <Route path="/chart" element={<><PageTitle title="Basic Chart" /><Chart /></>} />
         <Route path="/welcome" element={<><PageTitle title="Welcome" /><DataHubApp /></>} />
-        <Route path="/auth/signin" element={<><PageTitle title="Sign In" /><SignIn /></>} />
-        <Route path="/auth/signup" element={<><PageTitle title="Sign Up" /><SignUp /></>} />
+      
 
 
 
@@ -112,7 +108,10 @@ function App() {
         <Route path="/view-exam-categories" element={<><PageTitle title="Exam Categories" /><ViewExamCategory /></>} />
         <Route path="/admin-notification" element={<><PageTitle title="Admin Notification" /><AdminNotification /></>} />
         <Route path="/admin-dashboard" element={<><PageTitle title="AdminDashboard" /><AdminDashboard /></>} />
+        <Route path="/view-clerk-detail" element={<><PageTitle title="ViewClerkDetailPage" /><ViewClerkDetailPage /></>} />
 
+       
+        
         
         <Route path="/edit-direction" element={<><PageTitle title="DirectionEditorPage" /><DirectionEditorPage /></>} />
         <Route path="/edit-exercise-question" element={<><PageTitle title="ExerciseQuestionEditorPage" /><ExerciseQuestionEditorPage /></>} />
